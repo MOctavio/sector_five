@@ -1,7 +1,7 @@
 class Enemy
-  SPEED = 4
+  SPEED = 2
   def initialize(window)
-    @radius = 32
+    @radius = 16
     @y = 0
     @x = rand(window.width - 2 * @radius) + @radius
     @image = Gosu::Image.new('images/enemy.png')
