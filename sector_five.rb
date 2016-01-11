@@ -5,7 +5,7 @@ require_relative 'bullet'
 require_relative 'explosion'
 
 class SectorFive < Gosu::Window
-  ENEMY_FREQUENCY = 0.01
+  ENEMY_FREQUENCY = 0.02
   WIDTH = 800
   HEIGHT = 600
   def initialize
@@ -44,6 +44,13 @@ class SectorFive < Gosu::Window
       end
       if enemy.y > HEIGHT + enemy.radius
         @enemies.delete enemy
+      end
+      @explosions.dup.each do |explosion|
+        distance = Gosu.distance(enemy.x, enemy.y, explosion.x, explosion.y)
+        if distance < enemy.radius + explosion.radius
+          @enemies.delete enemy
+          @explosions.push Explosion.new(self, enemy.x, enemy.y)
+        end
       end
     end
     @explosions.dup.each do |explosion|
