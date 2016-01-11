@@ -20,4 +20,12 @@ class Bullet
     @x += Gosu.offset_x(@direction, SPEED)
     @y += Gosu.offset_y(@direction, SPEED)
   end
+
+  def onscreen?
+    left = -@radius
+    right = @window.width + @radius
+    top = -@radius
+    bottom = @window.height + @radius
+    @x > left && @x < right && @y > top && @y < bottom
+  end
 end
