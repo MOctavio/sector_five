@@ -2,18 +2,18 @@ class Player
   ROTATION_SPEED = 3
   ACCELERATION = 1
   FRICTION = 0.9
-  
+
   attr_reader :x, :y, :angle, :radius
 
   def initialize(window)
-    @x = 200
-    @y = 200
+    @radius = 16
+    @x = 400 - @radius
+    @y = 300 - @radius
     @velocity_x = 0
     @velocity_y = 0
     @angle = 0
     @image = Gosu::Image.new('images/ship.png')
     @window = window
-    @radius = 16
   end
 
   def draw
