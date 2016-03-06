@@ -1,5 +1,5 @@
 class Bullet
-  SPEED = 5
+  SPEED = 6
 
   attr_reader :x, :y, :radius
 
